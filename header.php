@@ -25,4 +25,4 @@
     }
     ?>
     
-    <header>Header</header>
+    <?php get_template_part( 'template-parts/header/nav' ); ?>
