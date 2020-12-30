@@ -25,3 +25,62 @@ function bootstraptheme_enqueue_scripts() {
     wp_enqueue_script( 'bootstrap-js' );
 }
 add_action( 'wp_enqueue_scripts', 'bootstraptheme_enqueue_scripts' );
+
+
+/**
+ * Theme Support
+ */
+
+function bootstraptheme_setup_theme() {
+
+    //Title
+    add_theme_support( 'title-tag' );
+
+    //Logo
+    add_theme_support( 'custom-logo', array(
+        'height'      => 100,
+        'width'       => 400,
+        'flex-height' => true,
+        'flex-width'  => true,
+        'header-text' => array( 'site-title', 'site-description' ),
+    ));
+
+    //Custom Background
+    add_theme_support( 'custom-background', [
+        'default-color' => '#fff',
+        'default_image' => ''
+    ]);
+
+    //Featured Image
+    add_theme_support( 'post-thumbnails' );
+
+    //Refresh Widgets
+    add_theme_support( 'customize-selective-refresh-widgets' );
+
+    //Feed Links
+    add_theme_support( 'automatic-feed-links' );
+
+    //HTML5
+    add_theme_support( 'html5', [
+        'search-form',
+        'comment-form',
+        'comment-list',
+        'gallery',
+        'caption',
+        'script',
+        'style'
+    ]);
+
+    //Gutenberg
+    add_theme_support( 'wp-block-styles' );
+
+    //Aligment Gutenberg Blocks
+    add_theme_support( 'align-wide' );
+
+    //Content Width
+    if ( ! isset( $content_width ) ) {
+        $content_width = 1200;
+    }
+
+}
+add_action( 'after_setup_theme', 'bootstraptheme_setup_theme' );
