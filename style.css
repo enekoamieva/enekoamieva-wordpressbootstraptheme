@@ -18,3 +18,8 @@ img {
     width: 100%;
     height: auto;
 }
+
+/* Nav Item */
+.nav-item:hover .dropdown-menu:not(.show) {
+    display: block
+}
