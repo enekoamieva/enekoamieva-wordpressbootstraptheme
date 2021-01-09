@@ -1,1 +1,1 @@
-# Develop WordPress Theme
+# Develop WordPress Theme with Bootstrap
