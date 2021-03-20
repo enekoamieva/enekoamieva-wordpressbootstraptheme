@@ -23,3 +23,14 @@ img {
 .nav-item:hover .dropdown-menu:not(.show) {
     display: block
 }
+
+/* Blog Pagination */
+.page-numbers.current span {
+    background-color: #3a3a3a;
+    color: #fff;
+}
+
+/* Single Post */
+.page-title.hide-heading {
+    display: none;
+}

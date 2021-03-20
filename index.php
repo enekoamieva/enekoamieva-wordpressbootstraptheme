@@ -41,7 +41,12 @@
                 <?php get_template_part( 'template-parts/content-none' ); ?>
 
         <?php endif; ?>
-
+        
+        <!-- Pagination -->
+        <div class="container">
+            <?php bootstraptheme_pagination(); ?>
+        </div>
+        
     </main>
 </div>
 
