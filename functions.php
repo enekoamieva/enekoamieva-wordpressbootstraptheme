@@ -84,3 +84,29 @@ function get_child_menu_items( $menu_array, $parent_id ) {
 
     return $child_menus;
 }
+
+/**
+ * Sidebars
+ */
+function bootstraptheme_register_sidebar() {
+    register_sidebar( array(
+        'name'          => __( 'Sidebar', 'bootstraptheme' ),
+        'id'            => 'sidebar-1',
+        'description'   => __( 'Main Sidebar', 'bootstraptheme' ),
+        'before_widget' => '<div id="%1$s" class="widget widget-sidebar %2$s">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h3 class="widget-title">',
+        'after_title'   => '</h3>',
+    ));
+
+    register_sidebar( array(
+        'name'          => __( 'Footer Sidebar', 'bootstraptheme' ),
+        'id'            => 'sidebar-2',
+        'description'   => __( 'Footer Sidebar', 'bootstraptheme' ),
+        'before_widget' => '<div id="%1$s" class="widget widget-footer cell column %2$s">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h3 class="widget-title">',
+        'after_title'   => '</h3>',
+    ));
+}
+add_action( 'widgets_init', 'bootstraptheme_register_sidebar' );
