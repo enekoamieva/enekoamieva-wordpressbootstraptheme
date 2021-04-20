@@ -15,7 +15,7 @@ if( ! defined( 'BOOTSTRAPTHEME_BUILD_JS_URI' ) ) {
 }
 
 if( ! defined( 'BOOTSTRAPTHEME_BUILD_JS_DIR_PATH' ) ) {
-    define( 'BOOTSTRAPTHEME_BUILD_JS_DIR_PATH', untrailingslashit( get_template_directory_uri() ) . '/assets/build/js' );
+    define( 'BOOTSTRAPTHEME_BUILD_JS_DIR_PATH', untrailingslashit( get_stylesheet_directory() ) . '/assets/build/js' );
 }
 
 if( ! defined( 'BOOTSTRAPTHEME_BUILD_IMG_URI' ) ) {
@@ -27,23 +27,26 @@ if( ! defined( 'BOOTSTRAPTHEME_BUILD_CSS_URI' ) ) {
 }
 
 if( ! defined( 'BOOTSTRAPTHEME_BUILD_CSS_DIR_PATH' ) ) {
-    define( 'BOOTSTRAPTHEME_BUILD_CSS_DIR_PATH', untrailingslashit( get_template_directory_uri() ) . '/assets/build/css' );
+    define( 'BOOTSTRAPTHEME_BUILD_CSS_DIR_PATH', untrailingslashit( get_stylesheet_directory() ) . '/assets/build/css' );
 }
 
 function bootstraptheme_enqueue_scripts() {
 
     //Register Styles
     wp_register_style( 'style-css', get_stylesheet_uri(), [], '1.0.0'  );
-    wp_register_style( 'bootstrap-css', get_template_directory_uri() . '/assets/src/library/bootstrap/css/bootstrap.min.css', [], false, 'all'  );
+    wp_register_style( 'bootstrap-css', get_template_directory_uri() . '/assets/src/library/bootstrap/css/bootstrap.min.css');
+    wp_register_style( 'main-css', BOOTSTRAPTHEME_BUILD_CSS_URI . '/main.css', ['bootstrap-css'], filemtime( BOOTSTRAPTHEME_BUILD_CSS_DIR_PATH . '/main.css' ) );
     wp_register_style( 'fonts-css', get_template_directory_uri() . '/assets/src/library/fonts/fonts.css', [], false, 'all'  );
     
     //Register Scripts
-    wp_register_script( 'main', BOOTSTRAPTHEME_BUILD_JS_URI . '/main.js', [], '1.0.0', true );
-    wp_register_script( 'bootstrap-js', get_template_directory_uri() . '/assets/bootstrap/js/bootstrap.min.js', ['jquery'], false, true  );
+    wp_register_script( 'main-js', BOOTSTRAPTHEME_BUILD_JS_URI . '/main.js', [], filemtime( BOOTSTRAPTHEME_BUILD_JS_DIR_PATH . '/main.js' ), true );
+    wp_register_script( 'bootstrap-js', get_template_directory_uri() . '/assets/src/library/bootstrap/js/bootstrap.min.js', ['jquery'], false, true  );
 
     //Enqueue Styles
-    wp_enqueue_style( 'style-css' );
     wp_enqueue_style( 'bootstrap-css' );
+    wp_enqueue_style( 'style-css' );
+    wp_enqueue_style( 'main-css' );
+    
 
     //Enqueue Scripts
     wp_enqueue_script( 'main-js' );

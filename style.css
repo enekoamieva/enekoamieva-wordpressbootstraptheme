@@ -13,26 +13,6 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: bootstraptheme
 */
 
-body {
-    font-family: 'Lato', sans-serif !important;
-}
-
-img {
-    width: 100%;
-    height: auto;
-}
-
-/* Nav Item */
-.nav-item:hover .dropdown-menu:not(.show) {
-    display: block
-}
-
-/* Blog Pagination */
-.page-numbers.current span {
-    background-color: #3a3a3a;
-    color: #fff;
-}
-
 /* Single Post */
 .page-title.hide-heading {
     display: none;
