@@ -13,6 +13,9 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: bootstraptheme
 */
 
+body {
+    font-family: 'Lato', sans-serif !important;
+}
 
 img {
     width: 100%;
