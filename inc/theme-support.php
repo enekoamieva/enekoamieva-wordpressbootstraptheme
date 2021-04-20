@@ -47,6 +47,10 @@ add_theme_support( 'wp-block-styles' );
 //Aligment Gutenberg Blocks
 add_theme_support( 'align-wide' );
 
+//Gutenber editor styles
+add_theme_support( 'editor-styles' );
+add_editor_style( 'assets/build/css/editor.css' );
+
 //Content Width
 if ( ! isset( $content_width ) ) {
     $content_width = 1200;
