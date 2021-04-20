@@ -1,0 +1,1 @@
+import '../img/music1.jpg'
